@@ -1,182 +1,1539 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Palagani Manikanta | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;600&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="index.css"/>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="P. Manikanta — AI & Data Science undergrad at Amrita Vishwa Vidyapeetham. ML projects, interpretability research, and a path toward a data science career.">
+<meta name="color-scheme" content="light dark">
+<title>P. Manikanta</title>
+<style>:root{color-scheme:light dark}body{margin:0;padding:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap");
+
+  :root {
+    /* ---- light theme (default) ---- */
+    --background: #f5f6f8;
+    --foreground: #12141a;
+    --muted: #4b5262;
+    --muted-dim: #767d90;
+    --cyan: #0e7490;
+    --magenta: #dc2626;
+    --lime: #4d7c0f;
+    --violet: #6d28d9;
+    --amber: #b45309;
+    --cyan-vivid: #22d3ee;
+    --magenta-vivid: #ef4444;
+    --lime-vivid: #a3e635;
+    --violet-vivid: #a78bfa;
+    --accent: var(--cyan);
+    --panel: #ffffff;
+    --border: #e2e4ea;
+    --body-copy: #23262f;
+    --card-bg: rgba(255,255,255,.86);
+    --card-border: rgba(15,17,23,.08);
+    --card-shadow: 0 1px 2px rgba(15,17,23,.04), 0 16px 36px -20px rgba(15,17,23,.16);
+    --grid-line: rgba(15,17,23,.06);
+    --term-bar-bg: rgba(15,17,23,.025);
+    --selection-text: #fff7f6;
+    --header-bg: rgba(245,246,248,0.82);
+    --aurora-blend: multiply;
+    --grain-blend: normal;
+    --grain-opacity: .045;
+    --aurora-op-1: .16; --aurora-op-2: .13; --aurora-op-3: .11; --aurora-op-4: .12;
+    --aurora-op-2-dim: .08; --aurora-op-4-dim: .06; --aurora-op-1-dim: .11; --aurora-op-3-dim: .08;
+    --field-dot-alpha: .5; --field-line-alpha: .1; --field-glow: 0;
+    --font-display: "Archivo", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    --font-sans: "Instrument Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  }
+
+  /* ---- dark theme: system preference (unless explicit light was chosen) ---- */
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --background: #050505; --foreground: #f5f6f8; --muted: #9aa3b4; --muted-dim: #6b7284;
+      --cyan: #22d3ee; --magenta: #ef4444; --lime: #a3e635; --violet: #a78bfa; --amber: #fbbf24;
+      --cyan-vivid: #22d3ee; --magenta-vivid: #ef4444; --lime-vivid: #a3e635; --violet-vivid: #a78bfa;
+      --panel: #0d0f16; --border: #23252f; --body-copy: #d8d9df;
+      --card-bg: linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.015));
+      --card-border: rgba(255,255,255,.09); --card-shadow: none;
+      --grid-line: rgba(255,255,255,.05); --term-bar-bg: rgba(255,255,255,.02);
+      --selection-text: #1a0512; --header-bg: rgba(5,5,5,0.82);
+      --aurora-blend: screen; --grain-blend: normal; --grain-opacity: .05;
+      --aurora-op-1: .5; --aurora-op-2: .45; --aurora-op-3: .32; --aurora-op-4: .38;
+      --aurora-op-2-dim: .2; --aurora-op-4-dim: .16; --aurora-op-1-dim: .22; --aurora-op-3-dim: .14;
+      --field-dot-alpha: .85; --field-line-alpha: .16; --field-glow: 1;
+    }
+  }
+  /* ---- dark theme: explicit toggle choice (always wins) ---- */
+  :root[data-theme="dark"] {
+    --background: #050505; --foreground: #f5f6f8; --muted: #9aa3b4; --muted-dim: #6b7284;
+    --cyan: #22d3ee; --magenta: #ef4444; --lime: #a3e635; --violet: #a78bfa; --amber: #fbbf24;
+    --cyan-vivid: #22d3ee; --magenta-vivid: #ef4444; --lime-vivid: #a3e635; --violet-vivid: #a78bfa;
+    --panel: #0d0f16; --border: #23252f; --body-copy: #d8d9df;
+    --card-bg: linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.015));
+    --card-border: rgba(255,255,255,.09); --card-shadow: none;
+    --grid-line: rgba(255,255,255,.05); --term-bar-bg: rgba(255,255,255,.02);
+    --selection-text: #1a0512; --header-bg: rgba(5,5,5,0.82);
+    --aurora-blend: screen; --grain-blend: normal; --grain-opacity: .05;
+    --aurora-op-1: .5; --aurora-op-2: .45; --aurora-op-3: .32; --aurora-op-4: .38;
+    --aurora-op-2-dim: .2; --aurora-op-4-dim: .16; --aurora-op-1-dim: .22; --aurora-op-3-dim: .14;
+    --field-dot-alpha: .85; --field-line-alpha: .16; --field-glow: 1;
+  }
+  :root[data-theme="light"] {
+    --background: #f5f6f8; --foreground: #12141a; --muted: #4b5262; --muted-dim: #767d90;
+    --cyan: #0e7490; --magenta: #dc2626; --lime: #4d7c0f; --violet: #6d28d9; --amber: #b45309;
+    --cyan-vivid: #22d3ee; --magenta-vivid: #ef4444; --lime-vivid: #a3e635; --violet-vivid: #a78bfa;
+    --panel: #ffffff; --border: #e2e4ea; --body-copy: #23262f;
+    --card-bg: rgba(255,255,255,.86); --card-border: rgba(15,17,23,.08);
+    --card-shadow: 0 1px 2px rgba(15,17,23,.04), 0 16px 36px -20px rgba(15,17,23,.16);
+    --grid-line: rgba(15,17,23,.06); --term-bar-bg: rgba(15,17,23,.025);
+    --selection-text: #fff7f6; --header-bg: rgba(245,246,248,0.82);
+    --aurora-blend: multiply; --grain-blend: normal; --grain-opacity: .045;
+    --aurora-op-1: .16; --aurora-op-2: .13; --aurora-op-3: .11; --aurora-op-4: .12;
+    --aurora-op-2-dim: .08; --aurora-op-4-dim: .06; --aurora-op-1-dim: .11; --aurora-op-3-dim: .08;
+    --field-dot-alpha: .5; --field-line-alpha: .1; --field-glow: 0;
+  }
+  :root { transition: none; }
+  body, .glass-card, header.site { transition: background-color .25s ease, border-color .25s ease, box-shadow .25s ease; }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.6;
+    letter-spacing: -0.004em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4 { font-family: var(--font-display); text-wrap: balance; }
+  code, kbd, pre, .font-mono { font-family: var(--font-mono); }
+
+  a { color: inherit; text-decoration: none; }
+  ::selection { background: var(--magenta); color: var(--selection-text); }
+  :focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; border-radius: 4px; }
+
+  .wrap { max-width: 64rem; margin: 0 auto; padding-inline: 1.5rem; }
+
+  /* ---------- header ---------- */
+  header.site {
+    position: sticky; top: 0; z-index: 50;
+    background: var(--header-bg);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  header.site .row { display: flex; align-items: center; justify-content: space-between; padding-block: 1rem; }
+  .brand { font-family: var(--font-mono); font-size: 0.875rem; font-weight: 500; letter-spacing: -0.02em; color: var(--foreground); }
+  .brand span { color: var(--cyan); }
+  nav.links { display: none; gap: 1.75rem; font-size: 0.8125rem; font-weight: 500; letter-spacing: .005em; color: var(--muted); }
+  nav.links a { position: relative; padding-block: 0.25rem; transition: color 0.2s; }
+  nav.links a:hover { color: var(--foreground); }
+  nav.links a::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: -2px; height: 2px; border-radius: 2px;
+    background: linear-gradient(90deg, var(--cyan-vivid), var(--magenta-vivid));
+    transform: scaleX(0); transform-origin: left; transition: transform .35s cubic-bezier(.22,1,.36,1);
+  }
+  nav.links a:hover::after { transform: scaleX(1); }
+  nav.links a.active { color: var(--foreground); }
+  nav.links a.active::after { transform: scaleX(1); }
+
+  /* read-progress hairline along the bottom edge of the header */
+  .scroll-progress { position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; pointer-events: none; overflow: hidden; }
+  .scroll-progress span {
+    display: block; height: 100%; width: 0%;
+    background: linear-gradient(90deg, var(--cyan-vivid), var(--violet-vivid) 45%, var(--magenta-vivid));
+    transform-origin: left;
+  }
+  .social { display: none; align-items: center; gap: 1rem; }
+  .social a { color: var(--muted); transition: color 0.2s; }
+  .social a:hover { color: var(--cyan); }
+  .menu-btn { display: inline-flex; background: none; border: 0; color: var(--foreground); cursor: pointer; font-size: 1.1rem; }
+  .theme-toggle {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 2rem; height: 2rem; margin-left: .75rem;
+    background: none; border: 1px solid var(--border); border-radius: 999px;
+    color: var(--muted); cursor: pointer; transition: color .2s, border-color .2s, transform .15s;
+    flex: none;
+  }
+  .theme-toggle:hover { color: var(--cyan); border-color: var(--cyan); }
+  .theme-toggle:active { transform: scale(.9); }
+  .theme-toggle .icon-sun { display: none; }
+  .theme-toggle .icon-moon { display: block; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .theme-toggle .icon-sun { display: block; }
+    :root:not([data-theme="light"]) .theme-toggle .icon-moon { display: none; }
+  }
+  :root[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+  :root[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+  :root[data-theme="light"] .theme-toggle .icon-sun { display: none; }
+  :root[data-theme="light"] .theme-toggle .icon-moon { display: block; }
+  @media (min-width: 768px) { nav.links, .social { display: flex; } .menu-btn { display: none; } }
+  /* on narrow screens the toggle joins the menu button on the right instead of floating mid-row */
+  @media (max-width: 767px) { .theme-toggle { margin-left: auto; margin-right: .6rem; } }
+  nav.mobile { display: none; flex-direction: column; gap: 0.25rem; border-top: 1px solid var(--border); padding: 1rem 1.5rem; background: var(--background); }
+  nav.mobile.open { display: flex; }
+  nav.mobile a { padding-block: 0.5rem; color: var(--muted); font-size: 0.9375rem; }
+
+  /* ---------- aurora (multi-hue, multiply-blended so tinted washes work on a light page) ---------- */
+  .aurora-blob { position: absolute; border-radius: 9999px; filter: blur(30px); pointer-events: none; mix-blend-mode: var(--aurora-blend); transition: opacity .25s ease; }
+  .aurora-1 { width: 32rem; height: 32rem; top: -8rem; left: -8rem; background: radial-gradient(circle, var(--cyan-vivid) 0%, transparent 70%); opacity: var(--aurora-op-1); animation: aurora-a 15s ease-in-out infinite; }
+  .aurora-2 { width: 28rem; height: 28rem; top: -6rem; right: -6rem; background: radial-gradient(circle, var(--magenta-vivid) 0%, transparent 70%); opacity: var(--aurora-op-2); animation: aurora-b 19s ease-in-out infinite; }
+  .aurora-3 { width: 24rem; height: 24rem; bottom: -10rem; left: 28%; background: radial-gradient(circle, var(--lime-vivid) 0%, transparent 70%); opacity: var(--aurora-op-3); animation: aurora-c 17s ease-in-out infinite; }
+  .aurora-4 { width: 24rem; height: 24rem; bottom: -8rem; right: 18%; background: radial-gradient(circle, var(--violet-vivid) 0%, transparent 70%); opacity: var(--aurora-op-4); animation: aurora-d 21s ease-in-out infinite; }
+  @keyframes aurora-a { 0%,100% { transform: translate(0,0) scale(1);} 50% { transform: translate(14%,10%) scale(1.18);} }
+  @keyframes aurora-b { 0%,100% { transform: translate(0,0) scale(1);} 50% { transform: translate(-16%,8%) scale(1.12);} }
+  @keyframes aurora-c { 0%,100% { transform: translate(0,0) scale(1);} 50% { transform: translate(10%,-16%) scale(1.2);} }
+  @keyframes aurora-d { 0%,100% { transform: translate(0,0) scale(1);} 50% { transform: translate(-10%,-12%) scale(1.15);} }
+  @media (prefers-reduced-motion: reduce) { .aurora-1,.aurora-2,.aurora-3,.aurora-4 { animation: none; } }
+
+  /* ---------- embedding field ----------
+     A drifting 2-D projection: four gaussian clusters, k-nearest-neighbour edges,
+     depth-sorted so near points sit brighter and larger than far ones. Reads as
+     deep space from a distance and as a scatter plot up close. Colours are pulled
+     from the live CSS variables so it re-tints on theme change. */
+  .field-page {
+    position: fixed; inset: 0; width: 100vw; height: 100vh; display: block; pointer-events: none; z-index: 0;
+    /* Brightest in the outer gutters, dimmed across the middle where the copy runs,
+       so the page reads as a sheet floating in the field rather than text on top of it. */
+    -webkit-mask-image: linear-gradient(90deg, #000 0%, rgba(0,0,0,.6) 15%, rgba(0,0,0,.14) 40%, rgba(0,0,0,.14) 58%, rgba(0,0,0,.7) 82%, #000 100%);
+    mask-image: linear-gradient(90deg, #000 0%, rgba(0,0,0,.6) 15%, rgba(0,0,0,.14) 40%, rgba(0,0,0,.14) 58%, rgba(0,0,0,.7) 82%, #000 100%);
+  }
+  /* narrow screens have no gutters — pull it right back so nothing sits under the copy */
+  @media (max-width: 767px) {
+    .field-page {
+      -webkit-mask-image: linear-gradient(90deg, #000 0%, rgba(0,0,0,.18) 28%, rgba(0,0,0,.18) 72%, #000 100%);
+      mask-image: linear-gradient(90deg, #000 0%, rgba(0,0,0,.18) 28%, rgba(0,0,0,.18) 72%, #000 100%);
+      opacity: .6;
+    }
+  }
+  /* page content sits above the field */
+  main { position: relative; z-index: 1; }
+
+  .bg-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+    background-size: 38px 38px;
+    -webkit-mask-image: radial-gradient(ellipse 60% 60% at 50% 0%, #000 20%, transparent 75%);
+    mask-image: radial-gradient(ellipse 60% 60% at 50% 0%, #000 20%, transparent 75%);
+  }
+
+  /* scanning highlight band drifting down the page — reads as a "system scan" */
+  /* animates transform, never `top` — moving `top` relayouts the page on every frame */
+  .scan-sweep {
+    position: fixed; left: 0; right: 0; top: 0; height: 220px; z-index: 42; pointer-events: none;
+    background: linear-gradient(to bottom, transparent, rgba(34,211,238,.035), rgba(239,68,68,.022), transparent);
+    transform: translate3d(0,-220px,0); will-change: transform;
+    animation: sweep 18s linear infinite;
+  }
+  @keyframes sweep { 0% { transform: translate3d(0,-220px,0); } 100% { transform: translate3d(0,100vh,0); } }
+  @media (prefers-reduced-motion: reduce) { .scan-sweep { display: none; } }
+
+  /* ---------- hero ---------- */
+  section#top { position: relative; overflow: hidden; border-bottom: 1px solid var(--border); }
+  .hero-inner { position: relative; padding-block: 5rem 5.25rem; will-change: transform; }
+  @media (min-width: 640px) { .hero-inner { padding-block: 6rem 7.5rem; } }
+  @media (min-width: 768px) { .hero-inner { padding-block: 7rem 9rem; } }
+  .eyebrow {
+    font-family: var(--font-mono); font-size: 0.8125rem; font-weight: 500;
+    letter-spacing: .02em; color: var(--lime); margin-bottom: 1.15rem;
+    opacity: 0; animation: fade-up .55s ease forwards;
+  }
+  h1.name {
+    font-family: var(--font-display);
+    font-weight: 800; letter-spacing: -0.035em; line-height: 0.92;
+    font-size: clamp(2.9rem, 9.5vw, 6.25rem);
+    /* Palindromic stop order. cyan and magenta are never adjacent — a straight sRGB blend
+       between them runs through mud — so the sweep steps through the palette's own
+       intermediate hues and mirrors back, which also makes the loop point seamless. */
+    background: linear-gradient(90deg,
+      var(--cyan) 0%, var(--cyan) 14%, var(--lime) 31%, var(--amber) 44%,
+      var(--magenta) 50%,
+      var(--amber) 56%, var(--lime) 69%, var(--cyan) 86%, var(--cyan) 100%);
+    background-size: 300% 100%;
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    opacity: 0; clip-path: inset(0 100% 0 0);
+    animation: name-in .95s cubic-bezier(.76,0,.24,1) .08s forwards, hue-drift 7s linear infinite;
+  }
+  @keyframes name-in {
+    0%   { opacity: 0; clip-path: inset(0 100% 0 0); }
+    14%  { opacity: 1; }
+    100% { opacity: 1; clip-path: inset(0 -2% 0 0); }
+  }
+  @keyframes hue-drift { 0% { background-position: 0% 50%; } 100% { background-position: 300% 50%; } }
+  @media (prefers-reduced-motion: reduce) {
+    h1.name { animation: none; opacity: 1; clip-path: none; background-position: 0% 50%; }
+  }
+  p.tagline {
+    margin-top: 1.5rem; max-width: 40rem; color: var(--muted);
+    font-size: 1.0625rem; line-height: 1.65; text-wrap: pretty;
+    opacity: 0; animation: fade-up .55s ease .14s forwards;
+  }
+  @media (min-width: 640px) { p.tagline { font-size: 1.1875rem; } }
+  .cta-row { margin-top: 2.4rem; display: flex; flex-wrap: wrap; align-items: center; gap: .85rem; opacity: 0; animation: fade-up .55s ease .2s forwards; }
+  @keyframes fade-up { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: .5rem; border-radius: .625rem;
+    padding: .7rem 1.3rem; font-size: .875rem; font-weight: 600; letter-spacing: -.005em; white-space: nowrap;
+  }
+  .btn-solid {
+    background: linear-gradient(120deg, var(--cyan-vivid), var(--violet-vivid));
+    color: #051019; box-shadow: 0 0 28px -10px rgba(34,211,238,.5);
+    transition: box-shadow .25s ease, background-position .4s ease;
+  }
+  .btn-solid:hover { box-shadow: 0 0 44px -8px rgba(167,139,250,.6); }
+  .btn-outline { border: 1px solid var(--border); color: var(--foreground); background: transparent; transition: border-color .2s, color .2s, background-color .2s; }
+  .btn-outline:hover { border-color: var(--cyan); color: var(--cyan); }
+  .magnetic { display: inline-block; will-change: transform; transition: transform .15s ease-out; }
+
+  .scroll-cue { position: absolute; bottom: 1.5rem; left: 50%; transform: translateX(-50%); color: var(--muted-dim); display: none; animation: bob 2s ease-in-out infinite; }
+  @media (min-width: 640px) { .scroll-cue { display: block; } }
+  @keyframes bob { 0%,100% { transform: translate(-50%,0);} 50% { transform: translate(-50%,8px);} }
+
+  /* ---------- sections ---------- */
+  section.block { position: relative; max-width: 64rem; margin: 0 auto; padding: 5.5rem 1.5rem; border-bottom: none; }
+  @media (min-width: 768px) { section.block { padding: 7.5rem 1.5rem; } }
+  /* hairline that fades out at both ends — reads as a rule, not a hard box edge */
+  section.block::after {
+    content: ""; position: absolute; left: 1.5rem; right: 1.5rem; bottom: 0; height: 1px; pointer-events: none;
+    background: linear-gradient(90deg, transparent, var(--border) 14%, var(--border) 86%, transparent);
+  }
+  section#contact::after { display: none; }
+
+  .kicker { font-family: var(--font-mono); font-size: .8125rem; font-weight: 500; letter-spacing: .01em; color: var(--cyan); }
+  .kicker .prompt { color: var(--lime); margin-right: .5rem; }
+  .kicker .cmd { white-space: pre; }
+  .lede { margin-top: .9rem; max-width: 40rem; color: var(--muted); font-size: 1.0625rem; line-height: 1.65; text-wrap: pretty; }
+
+  .glass-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    box-shadow: var(--card-shadow);
+    backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border-radius: 1.125rem;
+    position: relative; overflow: hidden;
+    transform-style: preserve-3d;
+    transition: box-shadow .35s ease, border-color .35s ease;
+  }
+  .glass-card .spotlight {
+    position: absolute; inset: 0; opacity: 0; transition: opacity .3s; pointer-events: none;
+    background: radial-gradient(360px circle at var(--mx,50%) var(--my,50%), var(--glow, rgba(34,211,238,.16)), transparent 65%);
+  }
+  .glass-card:hover .spotlight { opacity: 1; }
+
+  /* about */
+  section#about { position: relative; overflow: hidden; }
+  section#about > .kicker { position: relative; z-index: 1; }
+  section#about .bg-grid { opacity: .9; -webkit-mask-image: radial-gradient(ellipse 65% 80% at 18% 30%, #000 15%, transparent 75%); mask-image: radial-gradient(ellipse 65% 80% at 18% 30%, #000 15%, transparent 75%); }
+  .about-grid { margin-top: 2rem; display: grid; gap: 3rem; align-items: start; position: relative; z-index: 1; }
+  @media (min-width: 768px) { .about-grid { grid-template-columns: 3fr 2fr; gap: 3.5rem; } }
+  .about-grid p { font-size: 1.0625rem; line-height: 1.75; color: var(--body-copy); max-width: 36rem; text-wrap: pretty; }
+  .about-grid p + p { margin-top: 1.15rem; }
+  dl.facts { display: grid; gap: 1.1rem; }
+  dl.facts dt { font-family: var(--font-mono); font-size: .6875rem; font-weight: 500; text-transform: uppercase; letter-spacing: .09em; color: var(--muted-dim); }
+  dl.facts dd { margin: .3rem 0 0; font-size: .875rem; font-weight: 500; color: var(--foreground); }
+
+  /* projects / research */
+  .card-list { margin-top: 3rem; display: grid; gap: 1.75rem; }
+  .proj-card { padding: 0; border-top: 2px solid var(--proj-accent, var(--cyan)); }
+  .proj-card:hover { box-shadow: 0 0 50px -16px var(--proj-accent, var(--cyan)); }
+  /* on cards that animate in, the accent rail draws itself across the top edge.
+     top:0 (not -2px) because .glass-card clips with overflow:hidden. */
+  .proj-card.reveal { border-top-width: 0; }
+  .proj-card.reveal::before {
+    content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px; z-index: 3;
+    background: var(--proj-accent, var(--cyan));
+    transform: scaleX(0); transform-origin: left;
+    transition: transform .8s cubic-bezier(.22,1,.36,1) .15s;
+  }
+  .proj-card.reveal.in::before { transform: scaleX(1); }
+  @media (prefers-reduced-motion: reduce) { .proj-card.reveal::before { transition: none; } }
+  .term-bar { display: flex; align-items: center; gap: .4rem; padding: .65rem .9rem; border-bottom: 1px solid var(--border); background: var(--term-bar-bg); position: relative; z-index: 1; }
+  .term-dot { width: 9px; height: 9px; border-radius: 50%; flex: none; }
+  .term-dot.red { background: #ff5f56; } .term-dot.yellow { background: #ffbd2e; } .term-dot.green { background: #27c93f; }
+  .term-path { margin-left: .5rem; font-family: var(--font-mono); font-size: .75rem; color: var(--muted-dim); }
+  .card-body { padding: 1.5rem; position: relative; z-index: 1; }
+  @media (min-width: 640px) { .card-body { padding: 2rem; } }
+  .proj-head { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: .75rem; }
+  .proj-head h3 { margin: 0; font-size: 1.3125rem; font-weight: 700; letter-spacing: -.022em; line-height: 1.25; color: var(--foreground); }
+  .proj-head .period { margin-top: .35rem; font-family: var(--font-mono); font-size: .6875rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted-dim); }
+  .tag-link, .tag-status { display: inline-flex; align-items: center; gap: .4rem; border-radius: .5rem; padding: .4rem .75rem; font-size: .75rem; font-weight: 600; }
+  .tag-link { border: 1px solid var(--border); color: var(--body-copy); transition: border-color .2s, color .2s; }
+  .tag-link:hover { border-color: var(--proj-accent, var(--cyan)); color: var(--proj-accent, var(--cyan)); }
+  .tag-status { border: 1px dashed rgba(251,191,36,.5); color: var(--amber); }
+  .proj-summary { margin-top: 1.1rem; color: var(--body-copy); font-size: 1rem; line-height: 1.7; max-width: 44rem; text-wrap: pretty; }
+  .proj-details { margin-top: 1.15rem; padding: 0; list-style: none; display: grid; gap: .65rem; }
+  /* NOTE: this list must not be flex — inline <span>s inside an li would each become
+     a flex item and tear the sentence into columns. Absolute marker keeps the text one run. */
+  .proj-details li { position: relative; padding-left: 1.15rem; font-size: .9375rem; line-height: 1.7; color: var(--muted); max-width: 46rem; text-wrap: pretty; }
+  .proj-details li::before { content: ""; position: absolute; left: 0; top: .66em; width: 5px; height: 5px; border-radius: 999px; background: var(--proj-accent, var(--cyan)); }
+  .proj-details .counter { font-variant-numeric: tabular-nums; font-weight: 600; color: var(--body-copy); }
+  .stack-row { margin-top: 1.4rem; display: flex; flex-wrap: wrap; gap: .45rem; }
+  .stack-pill {
+    border: 1px solid var(--border); border-radius: 999px; padding: .32rem .7rem;
+    font-family: var(--font-mono); font-size: .6875rem; letter-spacing: .01em; color: var(--muted);
+    transition: border-color .2s, color .2s;
+  }
+  .stack-pill:hover { border-color: var(--proj-accent, var(--cyan)); color: var(--proj-accent, var(--cyan)); }
+  .research-tag { color: var(--violet); font-family: var(--font-mono); font-size: .6875rem; letter-spacing: .05em; text-transform: uppercase; display: inline-flex; align-items: center; gap: .4rem; margin-top: .4rem; }
+
+  /* glitch hover on project titles */
+  .glitch { position: relative; display: inline-block; }
+  .glitch::before, .glitch::after {
+    content: attr(data-text); position: absolute; top: 0; left: 0; width: 100%; opacity: 0; pointer-events: none;
+  }
+  .glitch:hover::before { opacity: .85; color: var(--cyan); clip-path: inset(0 0 58% 0); animation: glitch-a .32s steps(2, end) 1; }
+  .glitch:hover::after { opacity: .85; color: var(--magenta); clip-path: inset(58% 0 0 0); animation: glitch-b .32s steps(2, end) 1; }
+  @keyframes glitch-a { 0% { transform: translate(0,0);} 35% { transform: translate(-3px,-1px);} 70% { transform: translate(2px,1px);} 100% { transform: translate(0,0);} }
+  @keyframes glitch-b { 0% { transform: translate(0,0);} 35% { transform: translate(3px,1px);} 70% { transform: translate(-2px,-1px);} 100% { transform: translate(0,0);} }
+  @media (prefers-reduced-motion: reduce) { .glitch:hover::before, .glitch:hover::after { animation: none; opacity: 0; } }
+
+  /* skills */
+  .skills-grid { margin-top: 3rem; display: grid; gap: 1.25rem; align-items: start; }
+  @media (min-width: 640px) { .skills-grid { grid-template-columns: 1fr 1fr; gap: 1.5rem; } }
+  .skill-group { padding: 1.35rem 1.4rem 1.5rem; position: relative; }
+  .skill-group h3 { margin: 0; font-family: var(--font-mono); font-size: .75rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted-dim); }
+  .skill-loadbar { margin-top: .55rem; height: 3px; border-radius: 999px; background: var(--border); overflow: hidden; }
+  .skill-loadbar span {
+    display: block; height: 100%; width: 0%; border-radius: 999px;
+    background: var(--cat-accent, var(--cyan));
+    box-shadow: 0 0 8px var(--cat-accent, var(--cyan));
+    transition: width .8s cubic-bezier(.22,1,.36,1);
+  }
+  .skill-group.in .skill-loadbar span { width: 100%; }
+  .skill-pills { margin-top: .75rem; display: flex; flex-wrap: wrap; gap: .5rem; }
+  .skill-pill {
+    position: relative; overflow: hidden; font-family: var(--font-mono);
+    border: 1px solid var(--border); border-radius: 999px; padding: .3rem .75rem; font-size: .8125rem;
+    opacity: 0; transform: translateY(8px) scale(.92);
+    transition: transform .2s, border-color .2s, filter .2s, box-shadow .2s;
+  }
+  .skill-pill:hover {
+    transform: translateY(-2px) scale(1.03);
+    filter: brightness(1.2);
+    box-shadow: 0 4px 14px -6px var(--pill-glow, currentColor);
+  }
+  .skill-group.in .skill-pill { animation: pill-pop .45s cubic-bezier(.22,1.1,.36,1) forwards; }
+  .skill-group.in .skill-pills .skill-pill:nth-child(1) { animation-delay: .35s; }
+  .skill-group.in .skill-pills .skill-pill:nth-child(2) { animation-delay: .5s; }
+  .skill-group.in .skill-pills .skill-pill:nth-child(3) { animation-delay: .65s; }
+  .skill-group.in .skill-pills .skill-pill:nth-child(4) { animation-delay: .8s; }
+  @keyframes pill-pop {
+    0% { opacity: 0; transform: translateY(8px) scale(.92); }
+    55% { opacity: 1; transform: translateY(-2px) scale(1.06); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .skill-pill { opacity: 1; transform: none; }
+    .skill-group.in .skill-pill { animation: none; }
+    .skill-loadbar span { transition: none; }
+  }
+  .c-cyan { color: var(--cyan); border-color: rgba(34,211,238,.35); }
+  .c-magenta { color: var(--magenta); border-color: rgba(239,68,68,.35); }
+  .c-lime { color: var(--lime); border-color: rgba(163,230,53,.35); }
+  .c-violet { color: var(--violet); border-color: rgba(167,139,250,.35); }
+
+  /* contact */
+  section#contact { position: relative; overflow: hidden; border-bottom: none; }
+  h3.contact-head {
+    margin-top: 1.15rem; max-width: 34rem;
+    font-family: var(--font-display); font-weight: 800; letter-spacing: -0.032em; line-height: 1.05;
+    font-size: clamp(2rem, 5.2vw, 3.15rem);
+    /* foreground -> cyan -> violet: all cool, so no grey midpoint and no stray pink */
+    background: linear-gradient(115deg, var(--foreground) 0%, var(--foreground) 22%, var(--cyan) 62%, var(--violet) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  p.contact-sub { margin-top: 1.15rem; max-width: 34rem; color: var(--muted); font-size: 1.0625rem; line-height: 1.65; text-wrap: pretty; }
+  .contact-row { margin-top: 2.25rem; display: flex; flex-wrap: wrap; gap: .85rem; }
+  .fine-print {
+    margin-top: 4.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border);
+    font-family: var(--font-mono); font-size: .6875rem; letter-spacing: .01em; color: var(--muted-dim);
+  }
+
+  /* ---------- scroll reveal: staged, with a soft focus-in on text ---------- */
+  .reveal {
+    opacity: 0; transform: translateY(20px);
+    transition:
+      opacity .7s cubic-bezier(.22,1,.36,1) var(--rd, 0s),
+      transform .7s cubic-bezier(.22,1,.36,1) var(--rd, 0s),
+      filter .7s ease var(--rd, 0s);
+  }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+  /* text elements resolve out of a soft blur; cards do not (blur on a backdrop-filter card is expensive) */
+  p.reveal, h3.reveal { filter: blur(6px); }
+  p.reveal.in, h3.reveal.in { filter: blur(0); }
+  /* cards arrive with a slight forward tilt, like a stack settling */
+  .card-list > .reveal, .skills-grid > .reveal {
+    transform: translateY(28px) perspective(900px) rotateX(4deg);
+    transform-origin: 50% 100%;
+  }
+  .card-list > .reveal.in, .skills-grid > .reveal.in { transform: translateY(0) perspective(900px) rotateX(0deg); }
+  .card-list > .reveal:nth-child(2) { --rd: .09s; }
+  .card-list > .reveal:nth-child(3) { --rd: .18s; }
+  .skills-grid > .reveal:nth-child(2) { --rd: .07s; }
+  .skills-grid > .reveal:nth-child(3) { --rd: .14s; }
+  .skills-grid > .reveal:nth-child(4) { --rd: .21s; }
+  .lede.reveal { --rd: .08s; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal, p.reveal, h3.reveal { opacity: 1; transform: none; filter: none; transition: none; }
+    .card-list > .reveal, .skills-grid > .reveal { transform: none; }
+  }
+
+  /* grain */
+  .grain-overlay {
+    position: fixed; inset: 0; z-index: 40; pointer-events: none; opacity: var(--grain-opacity); mix-blend-mode: var(--grain-blend);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* ---------- boot sequence ---------- */
+  .boot-overlay {
+    position: fixed; inset: 0; z-index: 200; background: var(--background);
+    display: flex; align-items: center; justify-content: center; padding: 1.5rem;
+    transition: opacity .4s ease;
+  }
+  .boot-overlay.hide { opacity: 0; pointer-events: none; }
+  .boot-overlay[hidden] { display: none; }
+  .boot-term { font-family: var(--font-mono); color: var(--lime); font-size: .95rem; max-width: 34rem; width: 100%; white-space: pre-wrap; line-height: 1.7; }
+  @media (min-width: 640px) { .boot-term { font-size: 1.05rem; } }
+  .blink-cursor { display: inline-block; width: .5em; background: currentColor; margin-left: 1px; animation: blink 1s steps(2) infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  /* persistent prompt cursor next to $ commands */
+  .kicker .prompt-cursor { color: var(--foreground); }
+
+  /* ---------- github stats badge ---------- */
+  .gh-stats { margin-left: auto; font-family: var(--font-mono); font-size: .7rem; color: var(--muted-dim); white-space: nowrap; }
+  .gh-stats.loaded { color: var(--muted); }
+
+  /* ---------- interactive terminal ---------- */
+  .term-window { margin-top: 2.5rem; }
+  .term-output { padding: 1rem 1.25rem; max-height: 260px; overflow-y: auto; font-family: var(--font-mono); font-size: .8125rem; line-height: 1.7; color: var(--body-copy); }
+  .term-output .echo { color: var(--lime); }
+  .term-output .hl { color: var(--cyan); }
+  .term-output .err { color: var(--magenta); }
+  .term-input-row { display: flex; align-items: center; gap: .5rem; padding: .75rem 1.25rem; border-top: 1px solid var(--border); font-family: var(--font-mono); font-size: .8125rem; }
+  .term-prompt-label { color: var(--lime); white-space: nowrap; }
+  .term-input { flex: 1; min-width: 0; background: transparent; border: 0; outline: 0; color: var(--foreground); font: inherit; }
+
+  /* custom cursor: rainbow spinning ring (fine pointers only) */
+  .cursor-dot { position: fixed; top: 0; left: 0; z-index: 100; width: 6px; height: 6px; margin: -3px 0 0 -3px; border-radius: 999px; background: var(--cyan); opacity: 0; pointer-events: none; transition: opacity .2s ease; }
+  .cursor-ring { position: fixed; top: 0; left: 0; z-index: 100; width: 34px; height: 34px; margin: -17px 0 0 -17px; opacity: 0; pointer-events: none; transition: opacity .2s ease, transform .22s ease; }
+
+  .copy-toast {
+    position: fixed; z-index: 150; left: 0; top: 0; pointer-events: none;
+    background: var(--foreground); color: var(--background);
+    font-family: var(--font-mono); font-size: .75rem; font-weight: 600;
+    padding: .4rem .7rem; border-radius: .4rem;
+    opacity: 0; transform: translate(-50%, -8px); transition: opacity .18s ease, transform .18s ease;
+  }
+  .copy-toast.show { opacity: 1; transform: translate(-50%, -14px); }
+  /* quiet by default; it only picks up colour and spin over an interactive target */
+  .ring-spin {
+    position: absolute; inset: 0; border-radius: 50%; padding: 1.5px;
+    background: var(--muted-dim);
+    -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 1.5px), #000 calc(100% - 1.5px));
+    mask: radial-gradient(farthest-side, transparent calc(100% - 1.5px), #000 calc(100% - 1.5px));
+    opacity: .5; transition: opacity .25s ease, background .25s ease;
+  }
+  .cursor-ring.hot .ring-spin {
+    opacity: 1;
+    background: conic-gradient(from 0deg, var(--cyan-vivid), var(--magenta-vivid), var(--violet-vivid), var(--cyan-vivid));
+    animation: ring-spin 2.4s linear infinite;
+  }
+  @keyframes ring-spin { to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) { .cursor-ring.hot .ring-spin { animation: none; } }
+  @media (hover: hover) and (pointer: fine) { body, a, button { cursor: none; } }
+  @media (hover: none), (pointer: coarse) { .cursor-dot, .cursor-ring, .scan-sweep { display: none; } }
+</style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <a href="#home" class="logo">PM<span>.</span></a>
-  <ul>
-    <li><a href="#home">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#education">Education</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
 
-<!-- HOME -->
-<section id="home">
-  <span class="home-label">AI &amp; Data Science Student</span>
-  <h1>Palagani<br>Manikanta</h1>
-  <p>Building intelligent systems through machine learning, computer vision, and NLP. Turning data into real-world decisions.</p>
-  <a href="#contact" class="btn">Contact Me</a>
-</section>
 
-<!-- ABOUT -->
-<section id="about">
-  <span class="label">Who I Am</span>
-  <h2>About Me</h2>
-  <div class="rule"></div>
-  <div class="about-text">
-    <p>I'm <strong>Palagani Manikanta</strong> — an AI &amp; Data Science student at Amrita Vishwa Vidyapeetham who enjoys building systems that solve real problems. From medical image segmentation to security hardware and biomedical signal processing, I care about code that actually does something meaningful.</p>
-    <p>My toolkit spans <strong>Python, PyTorch, TensorFlow, and Scikit-learn</strong>, along with hands-on experience in data preprocessing, model training, and evaluation. I approach problems systematically and follow through from idea to working solution.</p>
-    <p>I'm actively looking for an <strong>AI/ML internship</strong> where I can contribute to real work and grow alongside people who take their craft seriously.</p>
-    <div class="pills">
-      <span>Python</span><span>PyTorch</span><span>TensorFlow</span><span>Scikit-learn</span>
-      <span>CNN</span><span>LSTM</span><span>RAG</span><span>OpenAI API</span><span>SQL</span><span>Git</span>
-    </div>
-  </div>
-</section>
+<script>
+  (function () {
+    try {
+      var t = localStorage.getItem("portfolioTheme");
+      if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+    } catch (e) {}
+  })();
+</script>
 
-<!-- SKILLS -->
-<section id="skills">
-  <span class="label">What I Know</span>
-  <h2>Technical Skills</h2>
-  <div class="rule"></div>
-  <div class="grid">
-    <div class="card">
-      <span class="card-icon">[ 01 ]</span>
-      <h3>Programming</h3>
-      <p>Python · HTML · CSS · JavaScript · Java · SQL</p>
-    </div>
-    <div class="card">
-      <span class="card-icon">[ 02 ]</span>
-      <h3>ML &amp; Deep Learning</h3>
-      <p>Scikit-learn · TensorFlow · PyTorch · XGBoost</p>
-    </div>
-    <div class="card">
-      <span class="card-icon">[ 03 ]</span>
-      <h3>Computer Vision</h3>
-      <p>CNN · Image Classification · Medical Imaging</p>
-    </div>
-    <div class="card">
-      <span class="card-icon">[ 04 ]</span>
-      <h3>NLP</h3>
-      <p>LSTM · RAG · LangChain · Language Models</p>
-    </div>
-    <div class="card">
-      <span class="card-icon">[ 05 ]</span>
-      <h3>Tools</h3>
-      <p>Git · Jupyter Notebook · OpenAI API</p>
-    </div>
-    <div class="card">
-      <span class="card-icon">[ 06 ]</span>
-      <h3>Soft Skills</h3>
-      <p>Communication · Team Work · Decision Making · Time Management</p>
-    </div>
-  </div>
-</section>
+<div class="boot-overlay" id="bootOverlay"><div class="boot-term" id="bootTerm"></div></div>
 
-<!-- PROJECTS -->
-<section id="projects">
-  <span class="label">What I've Built</span>
-  <h2>Projects</h2>
-  <div class="rule"></div>
-  <div class="proj-grid">
-    <div class="proj-card">
-      <h3>Smart Home Laser Security System</h3>
-      <p>Built a security system using a laser and LDR sensor to detect movement across an entry path. Implemented fingerprint authentication for registered users and triggers an alarm on unauthorized access.</p>
-      <div class="proj-tags">
-        <span>Sensors</span><span>Biometrics</span><span>Embedded</span>
-      </div>
-      <a href="https://github.com/palaganimanikanta9-spec/Smart-Home-Laser-Security-System.git" target="_blank" class="github-link">GitHub →</a>
-    </div>
-    <div class="proj-card">
-      <h3>ECG Amplifier &amp; Heartbeat Monitor</h3>
-      <p>Developed a system to capture heart signals using ECG electrodes with high-pass and low-pass filters to clean the signal. Processed via microcontroller and displayed waveforms on a laptop in real time.</p>
-      <div class="proj-tags">
-        <span>Biomedical</span><span>Signal Processing</span><span>Microcontroller</span>
-      </div>
-      <a href="https://github.com/palaganimanikanta9-spec/ECG-Amplifier-Heartbeat-Monitor.git" target="_blank" class="github-link">GitHub →</a>
-    </div>
-    <div class="proj-card">
-      <h3>Car Rental Management System</h3>
-      <p>Desktop application for managing car rental services built with Java Swing. Integrated a database for storing customer and rental records with full booking and record management features.</p>
-      <div class="proj-tags">
-        <span>Java</span><span>Java Swing</span><span>OOP</span><span>Database</span>
-      </div>
-      <a href="https://github.com/palaganimanikanta9-spec/car_rental_system.git" target="_blank" class="github-link">GitHub →</a>
-    </div>
-  </div>
-</section>
+<div class="grain-overlay"></div>
+<div class="scan-sweep"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"><span class="ring-spin"></span></div>
+<div class="copy-toast" id="copyToast" role="status" aria-live="polite">Copied email ✓</div>
 
-<!-- EDUCATION -->
-<section id="education">
-  <span class="label">My Background</span>
-  <h2>Education</h2>
-  <div class="rule"></div>
-  <div class="edu-list">
-    <div class="edu-item">
-      <div class="edu-year">2024 – 2028</div>
-      <div class="edu-info">
-        <strong>Amrita Vishwa Vidyapeetham, Amritapuri</strong>
-        <em>B.Tech — Artificial Intelligence &amp; Data Science · CGPA 8.21</em>
-      </div>
-    </div>
-    <div class="edu-item">
-      <div class="edu-year">2022 – 2024</div>
-      <div class="edu-info">
-        <strong>Narayana Junior College, Vijayawada</strong>
-        <em>Higher Secondary Education (IPE) · 93.7%</em>
-      </div>
-    </div>
-    <div class="edu-item">
-      <div class="edu-year">2022</div>
-      <div class="edu-info">
-        <strong>Viswabharathy English Medium School, Gudivada</strong>
-        <em>Secondary Education (SSC) · 95%</em>
-      </div>
-    </div>
-  </div>
-</section>
+<canvas class="field-page" id="pageField" data-field aria-hidden="true"></canvas>
 
-<!-- CONTACT -->
-<section id="contact">
-  <span class="label">Get In Touch</span>
-  <h2>Contact Me</h2>
-  <div class="rule"></div>
-  <div class="contact-grid">
-    <div class="contact-links">
-      <a href="/cdn-cgi/l/email-protection#f686979a979197989f9b97989f9d97988297cfb6919b979f9ad895999b" class="clink">
-        <div><small>Email</small><p><span class="__cf_email__" data-cfemail="0a7a6b666b6d6b6463676b6463616b647e6b334a6d676b636624696567">[email&#160;protected]</span></p></div>
+<header class="site">
+  <div class="wrap row">
+    <a href="#top" class="brand"><span>~/</span>manikanta</a>
+    <nav class="links">
+      <a href="#about" data-cursor-hover>About</a>
+      <a href="#projects" data-cursor-hover>Projects</a>
+      <a href="#research" data-cursor-hover>Research</a>
+      <a href="#terminal" data-cursor-hover>Terminal</a>
+      <a href="#skills" data-cursor-hover>Skills</a>
+      <a href="#contact" data-cursor-hover>Contact</a>
+    </nav>
+    <div class="social">
+      <a href="https://github.com/palaganimanikanta9-spec" target="_blank" rel="noopener noreferrer" aria-label="GitHub" data-cursor-hover>
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
       </a>
-      <a href="https://github.com/" target="_blank" class="clink">
-        <div><small>GitHub</small><p>github.com/palaganimanikanta</p></div>
-      </a>
-      <a href="https://linkedin.com/" target="_blank" class="clink">
-        <div><small>LinkedIn</small><p>linkedin.com/in/palaganimanikanta</p></div>
-      </a>
-      <a href="tel:+919989595092" class="clink">
-        <div><small>Phone</small><p>+91 9989595092</p></div>
+      <a href="https://linkedin.com/in/manikanta-palagani" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" data-cursor-hover>
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
       </a>
     </div>
-    <div class="form-box">
-      <h3>Send a Message</h3>
-      <label>Name<input type="text" placeholder="Your name"/></label>
-      <label>Email<input type="email" placeholder="Your email"/></label>
-      <label>Message<textarea placeholder="Hi Manikanta..."></textarea></label>
-      <button class="btn">Send</button>
-    </div>
+    <button class="theme-toggle" id="themeToggle" aria-label="Switch to dark theme" data-cursor-hover>
+      <svg class="icon-sun" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2.5v2.4M12 19.1v2.4M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.9 19.1l1.7-1.7M17.4 6.6l1.7-1.7"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M20.4 14.7A8.6 8.6 0 1 1 9.3 3.6a7 7 0 0 0 11.1 11.1Z"/></svg>
+    </button>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">&#9776;</button>
   </div>
-</section>
+  <div class="scroll-progress" aria-hidden="true"><span id="scrollBar"></span></div>
+  <nav class="mobile" id="mobileNav">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#research">Research</a>
+    <a href="#terminal">Terminal</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-<footer>
-  <p>© 2025 Palagani Manikanta</p>
+<main>
+  <section id="top">
+    <div class="aurora-blob aurora-1"></div>
+    <div class="aurora-blob aurora-2"></div>
+    <div class="aurora-blob aurora-3"></div>
+    <div class="aurora-blob aurora-4"></div>
+    <div class="bg-grid"></div>
+    <div class="wrap hero-inner">
+      <p class="eyebrow">hey, I&apos;m</p>
+      <h1 class="name">P. Manikanta</h1>
+      <p class="tagline">AI &amp; Data Science undergrad at Amrita Vishwa Vidyapeetham, building machine learning projects and interpretability research on the way to a career in data science.</p>
+      <div class="cta-row">
+        <span class="magnetic"><a href="#projects" class="btn btn-solid" data-cursor-hover>View projects &rarr;</a></span>
+        <span class="magnetic"><a href="https://github.com/palaganimanikanta9-spec" target="_blank" rel="noopener noreferrer" class="btn btn-outline" data-cursor-hover>GitHub</a></span>
+        <span class="magnetic"><a href="https://linkedin.com/in/manikanta-palagani" target="_blank" rel="noopener noreferrer" class="btn btn-outline" data-cursor-hover>LinkedIn</a></span>
+        <span class="magnetic"><a href="mailto:palaganimanikanta9@gmail.com" class="btn btn-outline copy-email" data-cursor-hover>Email</a></span>
+      </div>
+    </div>
+    <a href="#about" class="scroll-cue" data-cursor-hover aria-label="Scroll down">&darr;</a>
+  </section>
+
+  <section id="about" class="block reveal">
+    <div class="aurora-blob aurora-1" style="opacity:var(--aurora-op-1-dim)"></div>
+    <div class="aurora-blob aurora-3" style="opacity:var(--aurora-op-3-dim)"></div>
+    <div class="bg-grid"></div>
+    <p class="kicker"><span class="prompt">$</span><span class="cmd" data-cmd="whoami">whoami</span><span class="blink-cursor prompt-cursor">&nbsp;</span></p>
+    <div class="about-grid">
+      <div>
+        <p>I&apos;m a third-year AI &amp; Data Science student who splits time between coursework and hands-on ML work — everything from a full CNN ensemble for medical image classification to an ante-hoc interpretability method for spiking neural networks. I build under real constraints: a single consumer GPU most of the time, which forces decisions about what&apos;s actually worth training rather than throwing compute at a problem.</p>
+        <p>Longer term, I&apos;m working toward a data science role at Google — which means I care about getting the fundamentals (SQL, statistics, applied ML) solid, not just shipping demos.</p>
+      </div>
+      <div class="glass-card proj-card tilt" style="--glow: rgba(34,211,238,.18); --proj-accent: var(--cyan)">
+        <div class="spotlight"></div>
+        <div class="term-bar">
+          <span class="term-dot red"></span><span class="term-dot yellow"></span><span class="term-dot green"></span>
+          <span class="term-path">~/about/whoami.json</span>
+        </div>
+        <dl class="facts card-body">
+          <div><dt>Studying</dt><dd>B.Tech, AI &amp; Data Science</dd></div>
+          <div><dt>Institution</dt><dd>Amrita Vishwa Vidyapeetham</dd></div>
+          <div><dt>Timeline</dt><dd>2024 – 2028 · currently 3rd year</dd></div>
+          <div><dt>Focus</dt><dd>Applied ML &amp; interpretability research</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="block">
+    <p class="kicker reveal"><span class="prompt">$</span><span class="cmd" data-cmd="ls ./projects">ls ./projects</span><span class="blink-cursor prompt-cursor">&nbsp;</span></p>
+    <p class="lede reveal">A few shipped end to end, not a long list of half-finished ones.</p>
+
+    <div class="card-list">
+      <article class="glass-card proj-card tilt reveal" style="--glow: rgba(34,211,238,.18); --proj-accent: var(--cyan)">
+        <div class="spotlight"></div>
+        <div class="term-bar">
+          <span class="term-dot red"></span><span class="term-dot yellow"></span><span class="term-dot green"></span>
+          <span class="term-path">~/projects/customer-churn-prediction</span>
+          <span class="gh-stats" data-repo="palaganimanikanta9-spec/customer-churn-prediction" aria-live="polite"></span>
+        </div>
+        <div class="card-body">
+          <div class="proj-head">
+            <div>
+              <h3 class="glitch" data-text="Customer Churn Prediction">Customer Churn Prediction</h3>
+              <p class="period">Telecom analytics</p>
+            </div>
+            <a class="tag-link" href="https://github.com/palaganimanikanta9-spec/customer-churn-prediction" target="_blank" rel="noopener noreferrer" data-cursor-hover>Code &nearr;</a>
+          </div>
+          <p class="proj-summary">Predicts which telecom customers are about to churn from their contract, billing, and service usage data.</p>
+          <ul class="proj-details">
+            <li>Logistic Regression baseline reached <span class="counter" data-target="78" data-decimals="0" data-suffix="%">0%</span> accuracy; a class-balanced Random Forest traded a little accuracy for materially better recall on churners, which is the metric that matters for a retention campaign.</li>
+            <li>Found that month-to-month contracts and fiber-optic service correlate with higher churn, while longer contract terms correlate with lower churn — used to shape which customers a retention team should prioritize.</li>
+            <li>Next: XGBoost comparison, hyperparameter tuning, and a Streamlit demo so the model is clickable, not just a notebook.</li>
+          </ul>
+          <div class="stack-row">
+            <span class="stack-pill">Python</span><span class="stack-pill">Pandas</span><span class="stack-pill">NumPy</span><span class="stack-pill">Scikit-learn</span><span class="stack-pill">Seaborn</span><span class="stack-pill">Matplotlib</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="glass-card proj-card tilt reveal" style="--glow: rgba(239,68,68,.18); --proj-accent: var(--magenta)">
+        <div class="spotlight"></div>
+        <div class="term-bar">
+          <span class="term-dot red"></span><span class="term-dot yellow"></span><span class="term-dot green"></span>
+          <span class="term-path">~/projects/smartsave-ai-wallet</span>
+          <span class="gh-stats" data-repo="palaganimanikanta9-spec/smartsave-ai-wallet" aria-live="polite"></span>
+        </div>
+        <div class="card-body">
+          <div class="proj-head">
+            <div>
+              <h3 class="glitch" data-text="SmartSave AI Wallet">SmartSave AI Wallet</h3>
+              <p class="period">Amrita University Amritapuri Campus Hackathon, Jul 2026</p>
+            </div>
+            <a class="tag-link" href="https://github.com/palaganimanikanta9-spec/smartsave-ai-wallet" target="_blank" rel="noopener noreferrer" data-cursor-hover>Code &nearr;</a>
+          </div>
+          <p class="proj-summary">AI-powered budgeting wallet with receipt-verification and protected savings — built in 24 hours leading a 4-person team (&quot;Hackstreet Boys&quot;).</p>
+          <ul class="proj-details">
+            <li>OCR pipeline (Tesseract + OpenCV) reads receipts; a Gemini-backed verification service classifies each transaction into Essential / Non-Essential / Blocked before it&apos;s allowed to touch a protected savings reserve.</li>
+            <li>Full-stack build: Next.js 15 + TypeScript + Tailwind + Zustand on the frontend, an Express API gateway with PostgreSQL + Prisma, and three Python microservices coordinating over MCP.</li>
+            <li>Six-service Docker Compose deployment with atomic, row-locked transaction handling so concurrent writes can&apos;t corrupt a balance.</li>
+          </ul>
+          <div class="stack-row">
+            <span class="stack-pill">Next.js</span><span class="stack-pill">TypeScript</span><span class="stack-pill">Express</span><span class="stack-pill">PostgreSQL</span><span class="stack-pill">Prisma</span><span class="stack-pill">Python</span><span class="stack-pill">MCP</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="glass-card proj-card tilt reveal" style="--glow: rgba(251,191,36,.18); --proj-accent: var(--amber)">
+        <div class="spotlight"></div>
+        <div class="term-bar">
+          <span class="term-dot red"></span><span class="term-dot yellow"></span><span class="term-dot green"></span>
+          <span class="term-path">~/projects/skin-lesion-classification</span>
+        </div>
+        <div class="card-body">
+          <div class="proj-head">
+            <div>
+              <h3 class="glitch" data-text="Skin Lesion Classification">Skin Lesion Classification</h3>
+              <p class="period">4-person research project · ISIC2018 / HAM10000</p>
+            </div>
+            <span class="tag-status">&#9201; Repo publishing soon</span>
+          </div>
+          <p class="proj-summary">Ensemble of CNN backbones for dermatoscopic skin-lesion classification, with Grad-CAM interpretability.</p>
+          <ul class="proj-details">
+            <li>Trained and evaluated four backbones (ResNet50, DenseNet121, EfficientNetB0, MobileNetV2) on ISIC2018 and cross-checked generalization on HAM10000.</li>
+            <li>My contribution: data preprocessing and training the ResNet50 and EfficientNetB0 backbones. ResNet50 was the best-performing backbone at <span class="counter" data-target="93.4" data-decimals="1" data-suffix="%">0%</span> accuracy / <span class="counter" data-target="93.6" data-decimals="1" data-suffix="%">0%</span> weighted F1.</li>
+            <li>Grad-CAM used to visualize what each model was actually attending to — not just trusting the accuracy number.</li>
+          </ul>
+          <div class="stack-row">
+            <span class="stack-pill">PyTorch</span><span class="stack-pill">ResNet50</span><span class="stack-pill">EfficientNetB0</span><span class="stack-pill">Grad-CAM</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="research" class="block">
+    <p class="kicker reveal"><span class="prompt">$</span><span class="cmd" data-cmd="tail -f research/status.log">tail -f research/status.log</span><span class="blink-cursor prompt-cursor">&nbsp;</span></p>
+    <p class="lede reveal">Work in progress, shown honestly — including the parts that didn&apos;t go as planned.</p>
+
+    <article class="glass-card proj-card tilt reveal" style="margin-top:2.5rem; --glow: rgba(167,139,250,.2); --proj-accent: var(--violet)">
+      <div class="spotlight"></div>
+      <div class="term-bar">
+        <span class="term-dot red"></span><span class="term-dot yellow"></span><span class="term-dot green"></span>
+        <span class="term-path">~/research/spiking-cbm</span>
+        <span class="gh-stats" data-repo="palaganimanikanta9-spec/SpikingResformer" aria-live="polite"></span>
+      </div>
+      <div class="card-body">
+        <div class="proj-head">
+          <div>
+            <h3 class="glitch" data-text="Calibrated Ante-Hoc Concept Bottlenecks for Spiking Vision Backbones">Calibrated Ante-Hoc Concept Bottlenecks for Spiking Vision Backbones</h3>
+            <p class="research-tag">&#9879; Active research · experiment phase</p>
+          </div>
+          <a class="tag-link" href="https://github.com/palaganimanikanta9-spec/SpikingResformer" target="_blank" rel="noopener noreferrer" data-cursor-hover>Code &nearr;</a>
+        </div>
+        <p class="proj-summary">Trying to build the first ante-hoc interpretable spiking neural image classifier — a concept bottleneck layer inserted directly into a SpikingResformer backbone, rather than explained after the fact.</p>
+        <ul class="proj-details">
+          <li>Literature review found no existing work combining spiking neural networks with concept bottleneck models for vision.</li>
+          <li>Implemented a frozen SpikingResformer-Ti backbone with a LIF membrane-potential hook feeding a 112-concept bottleneck layer (CUB-200-2011 attributes) into a 200-way classification head.</li>
+          <li>Go/no-go probe on the readout signal: spike-rate narrowly beat pre-reset membrane potential (<span class="counter" data-target="0.911" data-decimals="3" data-suffix="">0</span> vs <span class="counter" data-target="0.908" data-decimals="3" data-suffix="">0</span> mean ROC-AUC), which failed the pre-registered significance gate — so the project pivoted to spike-rate as the primary readout rather than forcing a result.</li>
+          <li>Currently training with the corrected readout; no final accuracy numbers yet — this section will update when there&apos;s something real to report.</li>
+        </ul>
+        <div class="stack-row">
+          <span class="stack-pill">PyTorch</span><span class="stack-pill">Spiking Neural Networks</span><span class="stack-pill">SpikingResformer</span><span class="stack-pill">Concept Bottleneck Models</span>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <section id="terminal" class="block">
+    <p class="kicker reveal"><span class="prompt">$</span><span class="cmd" data-cmd="./interact.sh">./interact.sh</span><span class="blink-cursor prompt-cursor">&nbsp;</span></p>
+    <p class="lede reveal">This one's real — type a command.</p>
+
+    <div class="glass-card term-window reveal" style="--proj-accent: var(--lime)">
+      <div class="term-bar">
+        <span class="term-dot red"></span><span class="term-dot yellow"></span><span class="term-dot green"></span>
+        <span class="term-path">visitor@portfolio: ~</span>
+      </div>
+      <div class="term-output" id="termOutput" aria-live="polite">
+        <div>Welcome. Type <span class="hl">help</span> to see what this does.</div>
+      </div>
+      <div class="term-input-row">
+        <span class="term-prompt-label">$</span>
+        <input id="termInput" class="term-input" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Terminal command input" data-cursor-hover />
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="block">
+    <p class="kicker reveal"><span class="prompt">$</span><span class="cmd" data-cmd="pip list --user">pip list --user</span><span class="blink-cursor prompt-cursor">&nbsp;</span></p>
+    <p class="lede reveal">Listed at the level I&apos;d actually defend in an interview — including what I&apos;m still working on.</p>
+
+    <div class="skills-grid">
+      <div class="skill-group glass-card reveal" style="--cat-accent: var(--cyan)">
+        <h3>Languages</h3>
+        <div class="skill-loadbar"><span></span></div>
+        <div class="skill-pills"><span class="skill-pill c-cyan">Python</span><span class="skill-pill c-cyan">SQL</span><span class="skill-pill c-cyan">Java</span></div>
+      </div>
+      <div class="skill-group glass-card reveal" style="--cat-accent: var(--magenta)">
+        <h3>ML / DL</h3>
+        <div class="skill-loadbar"><span></span></div>
+        <div class="skill-pills"><span class="skill-pill c-magenta">PyTorch</span><span class="skill-pill c-magenta">Scikit-learn</span><span class="skill-pill c-magenta">CNNs</span><span class="skill-pill c-magenta">Spiking Neural Networks</span></div>
+      </div>
+      <div class="skill-group glass-card reveal" style="--cat-accent: var(--lime)">
+        <h3>Data</h3>
+        <div class="skill-loadbar"><span></span></div>
+        <div class="skill-pills"><span class="skill-pill c-lime">Pandas</span><span class="skill-pill c-lime">NumPy</span><span class="skill-pill c-lime">Seaborn</span><span class="skill-pill c-lime">Matplotlib</span></div>
+      </div>
+      <div class="skill-group glass-card reveal" style="--cat-accent: var(--violet)">
+        <h3>Currently learning</h3>
+        <div class="skill-loadbar"><span></span></div>
+        <div class="skill-pills"><span class="skill-pill c-violet">SQL window functions &amp; CTEs</span><span class="skill-pill c-violet">Statistics</span><span class="skill-pill c-violet">Cloud &amp; big data</span><span class="skill-pill c-violet">DSA</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="block reveal">
+    <div class="aurora-blob aurora-2" style="opacity:var(--aurora-op-2-dim)"></div>
+    <div class="aurora-blob aurora-4" style="opacity:var(--aurora-op-4-dim)"></div>
+    <p class="kicker"><span class="prompt">$</span><span class="cmd" data-cmd="mail --compose">mail --compose</span><span class="blink-cursor prompt-cursor">&nbsp;</span></p>
+    <h3 class="contact-head">Open to internship and entry-level data science opportunities.</h3>
+    <p class="contact-sub">Reach out on email or LinkedIn — happy to talk about any of the projects above in more depth.</p>
+    <div class="contact-row">
+      <span class="magnetic"><a href="mailto:palaganimanikanta9@gmail.com" class="btn btn-solid copy-email" data-cursor-hover>palaganimanikanta9@gmail.com</a></span>
+      <span class="magnetic"><a href="https://linkedin.com/in/manikanta-palagani" target="_blank" rel="noopener noreferrer" class="btn btn-outline" data-cursor-hover>LinkedIn</a></span>
+      <span class="magnetic"><a href="https://github.com/palaganimanikanta9-spec" target="_blank" rel="noopener noreferrer" class="btn btn-outline" data-cursor-hover>GitHub</a></span>
+    </div>
+    <p class="fine-print"><span class="prompt" style="color:var(--lime)">$</span> exit 0</p>
+  </section>
+</main>
+
+<script>
+  (function () {
+    "use strict";
+    var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+    var menuBtn = document.getElementById("menuBtn");
+    var mobileNav = document.getElementById("mobileNav");
+    menuBtn.addEventListener("click", function () { mobileNav.classList.toggle("open"); });
+    mobileNav.querySelectorAll("a").forEach(function (a) {
+      a.addEventListener("click", function () { mobileNav.classList.remove("open"); });
+    });
+
+    // ---------- theme toggle ----------
+    var themeToggle = document.getElementById("themeToggle");
+    var docEl = document.documentElement;
+    var THEME_KEY = "portfolioTheme";
+    function currentIsDark() {
+      var explicit = docEl.getAttribute("data-theme");
+      if (explicit) return explicit === "dark";
+      return window.matchMedia("(prefers-color-scheme: dark)").matches;
+    }
+    function updateToggleLabel() {
+      themeToggle.setAttribute("aria-label", currentIsDark() ? "Switch to light theme" : "Switch to dark theme");
+    }
+    updateToggleLabel();
+    themeToggle.addEventListener("click", function () {
+      var next = currentIsDark() ? "light" : "dark";
+      docEl.setAttribute("data-theme", next);
+      try { localStorage.setItem(THEME_KEY, next); } catch (e) {}
+      updateToggleLabel();
+      // the canvas field reads its colours from CSS vars, so re-tint it on theme change
+      requestAnimationFrame(function () { refreshFieldTheme(); });
+    });
+    (function () {
+      var mq = window.matchMedia("(prefers-color-scheme: dark)");
+      var onChange = function () { updateToggleLabel(); refreshFieldTheme(); };
+      if (mq.addEventListener) mq.addEventListener("change", onChange);
+      else if (mq.addListener) mq.addListener(onChange);
+    })();
+
+    // ---------- decode/scramble text effect (used by skill pills) ----------
+    var SCRAMBLE_CHARS = "!<>-_\\/[]{}=+*^?#01アイウ";
+    function scrambleReveal(el, finalText, duration) {
+      var len = finalText.length;
+      var start = null;
+      function frame(ts) {
+        if (start === null) start = ts;
+        var progress = Math.min((ts - start) / duration, 1);
+        var locked = Math.floor(progress * len);
+        var out = "";
+        for (var i = 0; i < len; i++) {
+          if (i < locked || finalText[i] === " ") out += finalText[i];
+          else out += SCRAMBLE_CHARS[(Math.random() * SCRAMBLE_CHARS.length) | 0];
+        }
+        el.textContent = out;
+        if (progress < 1) requestAnimationFrame(frame);
+        else el.textContent = finalText;
+      }
+      requestAnimationFrame(frame);
+    }
+    var pillDelays = [350, 500, 650, 800];
+    function decodeSkillGroup(group) {
+      var pills = group.querySelectorAll(".skill-pill");
+      pills.forEach(function (pill, i) {
+        var finalText = pill.getAttribute("data-label") || pill.textContent;
+        pill.setAttribute("data-label", finalText);
+        setTimeout(function () { scrambleReveal(pill, finalText, 380); }, pillDelays[i] || 350 + i * 150);
+      });
+    }
+    // brief re-scramble on hover — a quick "signal glitch" rather than a plain highlight
+    document.querySelectorAll(".skill-pill").forEach(function (pill) {
+      pill.addEventListener("mouseenter", function () {
+        if (reduced) return;
+        var finalText = pill.getAttribute("data-label") || pill.textContent;
+        pill.setAttribute("data-label", finalText);
+        scrambleReveal(pill, finalText, 220);
+      });
+    });
+
+    var revealEls = document.querySelectorAll(".reveal");
+    if ("IntersectionObserver" in window && !reduced) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in");
+            io.unobserve(entry.target);
+            if (entry.target.classList.contains("skill-group")) decodeSkillGroup(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: "-40px" });
+      revealEls.forEach(function (el) { io.observe(el); });
+    } else {
+      revealEls.forEach(function (el) { el.classList.add("in"); });
+    }
+
+    // ---------- section headers type themselves out ----------
+    (function () {
+      var cmds = document.querySelectorAll(".kicker .cmd");
+      if (!cmds.length || reduced || !("IntersectionObserver" in window)) return;
+
+      // blank them up front so nothing flashes fully typed before its turn
+      cmds.forEach(function (el) {
+        el.setAttribute("data-cmd", el.getAttribute("data-cmd") || el.textContent);
+        el.textContent = "";
+      });
+
+      function typeCmd(el) {
+        var full = el.getAttribute("data-cmd") || "";
+        var i = 0;
+        (function step() {
+          el.textContent = full.slice(0, i);
+          i++;
+          if (i <= full.length) setTimeout(step, 34);
+        })();
+      }
+
+      var cmdIo = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          cmdIo.unobserve(entry.target);
+          setTimeout(function () { typeCmd(entry.target); }, 110);
+        });
+      }, { threshold: 0.9, rootMargin: "-20px" });
+      cmds.forEach(function (el) { cmdIo.observe(el); });
+    })();
+
+    // ---------- read progress, scrollspy nav, hero parallax ----------
+    (function () {
+      var scrollBar = document.getElementById("scrollBar");
+      var navLinks = Array.prototype.slice.call(document.querySelectorAll("nav.links a"));
+      var sections = navLinks.map(function (a) {
+        var id = a.getAttribute("href") || "";
+        return id.charAt(0) === "#" ? document.querySelector(id) : null;
+      });
+      var heroInner = document.querySelector(".hero-inner");
+      var ticking = false;
+
+      function update() {
+        ticking = false;
+        var y = window.scrollY || document.documentElement.scrollTop || 0;
+        var docH = document.documentElement.scrollHeight - window.innerHeight;
+        var pct = docH > 0 ? Math.min(Math.max(y / docH, 0), 1) : 0;
+        if (scrollBar) scrollBar.style.width = (pct * 100).toFixed(2) + "%";
+
+        if (heroInner && !reduced) {
+          var h = heroInner.offsetHeight || 1;
+          var p = Math.min(y / h, 1);
+          if (p < 1) {
+            heroInner.style.transform = "translate3d(0," + (y * 0.16).toFixed(1) + "px,0)";
+            heroInner.style.opacity = (1 - p * 0.9).toFixed(3);
+          }
+        }
+
+        var activeIdx = -1;
+        for (var i = 0; i < sections.length; i++) {
+          if (sections[i] && sections[i].getBoundingClientRect().top <= window.innerHeight * 0.36) activeIdx = i;
+        }
+        navLinks.forEach(function (a, i) {
+          if (i === activeIdx) a.classList.add("active"); else a.classList.remove("active");
+        });
+      }
+
+      window.addEventListener("scroll", function () {
+        if (!ticking) { ticking = true; requestAnimationFrame(update); }
+      }, { passive: true });
+      window.addEventListener("resize", update);
+      update();
+    })();
+
+    /* ---------- embedding field ----------
+       One fixed, page-wide canvas. Points live in a world taller than the viewport and
+       the whole field translates at a fraction of scroll speed, so scrolling reads as
+       moving through a single continuous space rather than past separate patches. */
+    var refreshFieldTheme = function () {};
+    (function () {
+      var nodes = Array.prototype.slice.call(document.querySelectorAll("[data-field]"));
+      if (!nodes.length) return;
+      var probe = document.createElement("canvas");
+      if (!probe.getContext || !probe.getContext("2d")) return;
+
+      var PARALLAX = reduced ? 0 : 0.34;
+      var VARS = ["--cyan", "--magenta", "--lime", "--violet"];
+      var LINK = 92, LINK2 = LINK * LINK;
+      var palette = [[34,211,238],[239,68,68],[163,230,53],[167,139,250]];
+      var dotAlpha = 0.6, lineAlpha = 0.12, glow = 0;
+
+      function hexToRgb(hex) {
+        hex = (hex || "").trim().replace("#", "");
+        if (hex.length === 3) hex = hex[0]+hex[0]+hex[1]+hex[1]+hex[2]+hex[2];
+        if (hex.length !== 6) return null;
+        var n = parseInt(hex, 16);
+        if (isNaN(n)) return null;
+        return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+      }
+      function readTheme() {
+        var cs = getComputedStyle(document.documentElement);
+        VARS.forEach(function (v, i) {
+          var rgb = hexToRgb(cs.getPropertyValue(v));
+          if (rgb) palette[i] = rgb;
+        });
+        dotAlpha = parseFloat(cs.getPropertyValue("--field-dot-alpha")) || 0.6;
+        lineAlpha = parseFloat(cs.getPropertyValue("--field-line-alpha")) || 0.12;
+        glow = parseFloat(cs.getPropertyValue("--field-glow")) || 0;
+      }
+      readTheme();
+
+      // approximate normal deviate — three uniforms is plenty for a scatter cloud
+      function gauss() { return (Math.random() + Math.random() + Math.random() - 1.5) / 1.5; }
+
+      var BUCKETS = 6;
+      var fields = [];
+      function makeField(canvas) {
+        var ctx = canvas.getContext("2d");
+        var dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+        var w = 1, h = 1, worldH = 1, pts = [], pairs = [], f = { canvas: canvas, active: true };
+        var density = parseFloat(canvas.getAttribute("data-density")) || 1;
+
+        function seed() {
+          // clusters are spaced down the world, one colour cycling through the palette
+          var nc = Math.max(4, Math.min(10, Math.round(worldH / 520)));
+          var n = Math.round(Math.min(Math.max((w * worldH) / 13000, 40), 300) * density);
+          var centers = [];
+          for (var c = 0; c < nc; c++) {
+            centers.push({
+              k: c % 4,
+              x: w * (0.07 + Math.random() * 0.86),
+              y: worldH * ((c + 0.5) / nc) + (Math.random() - 0.5) * (worldH / nc) * 0.4
+            });
+          }
+          var spread = Math.min(w, 620) * 0.16;
+          pts = [];
+          for (var i = 0; i < n; i++) {
+            var C = centers[i % nc];
+            pts.push({
+              c: C.k,
+              bx: C.x + gauss() * spread,
+              by: C.y + gauss() * spread * 0.9,
+              z: 0.2 + Math.random() * 0.8,
+              ph: Math.random() * Math.PI * 2,
+              sp: 0.3 + Math.random() * 0.7,
+              amp: 3 + Math.random() * 11,
+              tw: Math.random() * Math.PI * 2,
+              on: true,
+              x: 0, y: 0
+            });
+          }
+          pts.sort(function (a, b) { return a.z - b.z; }); // far points paint first
+
+          /* Neighbour pairs are computed ONCE here, not every frame. Points only jitter a
+             few px around a fixed base, so candidate selection uses a padded radius and the
+             per-frame work is just a distance check on a short list instead of O(n^2). */
+          pairs = [];
+          var CAND = LINK + 26, CAND2 = CAND * CAND;
+          for (var a = 0; a < pts.length; a++) {
+            for (var b = a + 1; b < pts.length; b++) {
+              if (pts[b].c !== pts[a].c) continue;
+              var ddx = pts[a].bx - pts[b].bx, ddy = pts[a].by - pts[b].by;
+              if (ddx * ddx + ddy * ddy <= CAND2) pairs.push(a, b);
+            }
+          }
+        }
+
+        f.layout = function () {
+          var r = canvas.getBoundingClientRect();
+          w = Math.max(r.width, 1); h = Math.max(r.height, 1);
+          canvas.width = Math.round(w * dpr);
+          canvas.height = Math.round(h * dpr);
+          ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+          // the world is as tall as the viewport plus whatever the parallax will travel
+          var docH = Math.max(document.documentElement.scrollHeight, h);
+          f.docH = docH;
+          worldH = h + (docH - h) * PARALLAX;
+          seed();
+        };
+
+        /* Re-seeding reshuffles every point, which is visible as a jump — so only do it
+           when the page has actually grown enough to leave empty world at the bottom. */
+        f.relayoutIfStale = function () {
+          var docH = Math.max(document.documentElement.scrollHeight, h);
+          if (Math.abs(docH - (f.docH || docH)) / Math.max(f.docH || 1, 1) > 0.12) f.layout();
+        };
+
+        f.draw = function (t, mx, my, sy) {
+          ctx.clearRect(0, 0, w, h);
+          var i, j, p, q;
+          var off = -(sy || 0) * PARALLAX;   // the field trails the page
+          var margin = LINK;
+          for (i = 0; i < pts.length; i++) {
+            p = pts[i];
+            var a = p.ph + t * 0.00022 * p.sp;
+            p.x = p.bx + Math.cos(a) * p.amp + mx * p.z * 16;
+            p.y = p.by + off + Math.sin(a * 0.82) * p.amp * 0.72 + my * p.z * 16;
+            p.on = p.y > -margin && p.y < h + margin;
+          }
+          /* Edges, batched: every segment is sorted into one of (clusters x BUCKETS)
+             alpha bins and each bin is drawn as a single path. That is ~16 stroke calls
+             per frame instead of one per segment. */
+          ctx.lineWidth = 1;
+          var bins = f.bins;
+          for (i = 0; i < bins.length; i++) bins[i].length = 0;
+          for (i = 0; i < pairs.length; i += 2) {
+            p = pts[pairs[i]]; q = pts[pairs[i + 1]];
+            if (!p.on && !q.on) continue;   // both ends off-screen
+            var dx = p.x - q.x, dy = p.y - q.y, d2 = dx * dx + dy * dy;
+            if (d2 > LINK2) continue;
+            var str = (1 - Math.sqrt(d2) / LINK) * ((p.z + q.z) * 0.5);
+            var bi = (str * BUCKETS) | 0;
+            if (bi >= BUCKETS) bi = BUCKETS - 1;
+            if (bi < 0) continue;
+            var bin = bins[p.c * BUCKETS + bi];
+            bin.push(p.x, p.y, q.x, q.y);
+          }
+          for (var c = 0; c < 4; c++) {
+            var col = palette[c];
+            for (var bkt = 0; bkt < BUCKETS; bkt++) {
+              var seg = bins[c * BUCKETS + bkt];
+              if (!seg.length) continue;
+              var alv = lineAlpha * ((bkt + 0.5) / BUCKETS);
+              if (alv <= 0.004) continue;
+              ctx.strokeStyle = "rgba(" + col[0] + "," + col[1] + "," + col[2] + "," + alv.toFixed(3) + ")";
+              ctx.beginPath();
+              for (j = 0; j < seg.length; j += 4) {
+                ctx.moveTo(seg[j], seg[j + 1]); ctx.lineTo(seg[j + 2], seg[j + 3]);
+              }
+              ctx.stroke();
+            }
+          }
+          // dots, batched the same way: one fill per cluster/depth bin
+          var dbins = f.dbins;
+          for (i = 0; i < dbins.length; i++) dbins[i].length = 0;
+          for (i = 0; i < pts.length; i++) {
+            p = pts[i];
+            if (!p.on) continue;
+            /* Twinkle for free: the depth used for binning oscillates slightly, so points
+               drift between brightness bins instead of needing their own draw call. */
+            var zt = p.z * (0.87 + 0.13 * Math.sin(t * 0.0011 + p.tw));
+            var zi = (zt * BUCKETS) | 0;
+            if (zi >= BUCKETS) zi = BUCKETS - 1;
+            if (zi < 0) zi = 0;
+            dbins[p.c * BUCKETS + zi].push(p.x, p.y);
+          }
+          for (c = 0; c < 4; c++) {
+            var dcol = palette[c];
+            for (bkt = 0; bkt < BUCKETS; bkt++) {
+              var dots = dbins[c * BUCKETS + bkt];
+              if (!dots.length) continue;
+              var zc = (bkt + 0.5) / BUCKETS;
+              var rad = 0.5 + zc * 1.7;
+              var al2 = dotAlpha * (0.25 + zc * 0.75);
+              if (glow && zc > 0.7) {
+                ctx.fillStyle = "rgba(" + dcol[0] + "," + dcol[1] + "," + dcol[2] + "," + (al2 * 0.13).toFixed(3) + ")";
+                ctx.beginPath();
+                for (j = 0; j < dots.length; j += 2) {
+                  ctx.moveTo(dots[j] + rad * 3.6, dots[j + 1]);
+                  ctx.arc(dots[j], dots[j + 1], rad * 3.6, 0, 6.283);
+                }
+                ctx.fill();
+              }
+              ctx.fillStyle = "rgba(" + dcol[0] + "," + dcol[1] + "," + dcol[2] + "," + al2.toFixed(3) + ")";
+              ctx.beginPath();
+              for (j = 0; j < dots.length; j += 2) {
+                ctx.moveTo(dots[j] + rad, dots[j + 1]);
+                ctx.arc(dots[j], dots[j + 1], rad, 0, 6.283);
+              }
+              ctx.fill();
+            }
+          }
+        };
+
+        f.bins = []; f.dbins = [];
+        for (var q0 = 0; q0 < 4 * BUCKETS; q0++) { f.bins.push([]); f.dbins.push([]); }
+        f.layout();
+        fields.push(f);
+        return f;
+      }
+
+      nodes.forEach(makeField);
+
+      // only animate what is on screen
+      if ("IntersectionObserver" in window) {
+        var vio = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            for (var i = 0; i < fields.length; i++) {
+              if (fields[i].canvas === e.target) fields[i].active = e.isIntersecting;
+            }
+          });
+        }, { rootMargin: "120px" });
+        nodes.forEach(function (n) { vio.observe(n); });
+      }
+
+      refreshFieldTheme = function () {
+        readTheme();
+        if (reduced) fields.forEach(function (f) { f.draw(0, 0, 0); });
+      };
+
+      var rt = null;
+      window.addEventListener("resize", function () {
+        clearTimeout(rt);
+        rt = setTimeout(function () {
+          fields.forEach(function (f) { f.layout(); });
+          if (reduced) fields.forEach(function (f) { f.draw(0, 0, 0); });
+        }, 180);
+      });
+
+      if (reduced) {
+        fields.forEach(function (f) { f.draw(0, 0, 0); });
+        return;
+      }
+
+      var tmx = 0, tmy = 0, cmx = 0, cmy = 0;
+      if (finePointer) {
+        window.addEventListener("mousemove", function (e) {
+          tmx = (e.clientX / window.innerWidth - 0.5) * 2;
+          tmy = (e.clientY / window.innerHeight - 0.5) * 2;
+        }, { passive: true });
+      }
+
+      // the document can grow once fonts land and reveals fire; only re-seed if it really did
+      setTimeout(function () { fields.forEach(function (f) { f.relayoutIfStale(); }); }, 1500);
+
+      (function loop(ts) {
+        requestAnimationFrame(loop);
+        if (document.hidden) return;
+        cmx += (tmx - cmx) * 0.05;
+        cmy += (tmy - cmy) * 0.05;
+        var sy = window.scrollY || document.documentElement.scrollTop || 0;
+        for (var i = 0; i < fields.length; i++) {
+          if (fields[i].active) fields[i].draw(ts || 0, cmx, cmy, sy);
+        }
+      })(0);
+    })();
+
+    // ---------- boot sequence ----------
+    var bootOverlay = document.getElementById("bootOverlay");
+    var bootTerm = document.getElementById("bootTerm");
+    if (bootOverlay && bootTerm) {
+      var BOOT_KEY = "portfolioBootPlayed";
+      var alreadyPlayed = false;
+      try { alreadyPlayed = sessionStorage.getItem(BOOT_KEY) === "1"; } catch (e) {}
+
+      if (reduced || alreadyPlayed) {
+        bootOverlay.setAttribute("hidden", "");
+      } else {
+        try { sessionStorage.setItem(BOOT_KEY, "1"); } catch (e) {}
+
+        var bootLines = [
+          { text: "$ whoami", pause: 150 },
+          { text: "P. Manikanta", pause: 180, dim: true },
+          { text: "$ launch --portfolio", pause: 120 }
+        ];
+        var bootIdx = 0;
+        var bootSafety = setTimeout(finishBoot, 3000);
+
+        function typeBootLine(line, cb) {
+          var row = document.createElement("div");
+          if (line.dim) row.style.color = "var(--cyan)";
+          bootTerm.appendChild(row);
+          var j = 0;
+          var speed = line.dim ? 10 : 18;
+          (function step() {
+            row.textContent = line.text.slice(0, j);
+            j++;
+            if (j <= line.text.length) { setTimeout(step, speed); }
+            else { setTimeout(cb, line.pause); }
+          })();
+        }
+        function nextBootLine() {
+          if (bootIdx >= bootLines.length) { setTimeout(finishBoot, 150); return; }
+          typeBootLine(bootLines[bootIdx], function () { bootIdx++; nextBootLine(); });
+        }
+        function finishBoot() {
+          clearTimeout(bootSafety);
+          bootOverlay.classList.add("hide");
+          setTimeout(function () { bootOverlay.setAttribute("hidden", ""); }, 350);
+        }
+        nextBootLine();
+      }
+    }
+
+    // ---------- animated stat counters ----------
+    var counters = document.querySelectorAll(".counter");
+    function counterFinal(el) {
+      var target = parseFloat(el.getAttribute("data-target"));
+      var decimals = parseInt(el.getAttribute("data-decimals") || "0", 10);
+      var suffix = el.getAttribute("data-suffix") || "";
+      el.textContent = target.toFixed(decimals) + suffix;
+    }
+    if (counters.length) {
+      if (reduced || !("IntersectionObserver" in window)) {
+        counters.forEach(counterFinal);
+      } else {
+        var counterIo = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            counterIo.unobserve(entry.target);
+            var el = entry.target;
+            var target = parseFloat(el.getAttribute("data-target"));
+            var decimals = parseInt(el.getAttribute("data-decimals") || "0", 10);
+            var suffix = el.getAttribute("data-suffix") || "";
+            var duration = 900;
+            var start = null;
+            function frame(ts) {
+              if (start === null) start = ts;
+              var progress = Math.min((ts - start) / duration, 1);
+              var eased = 1 - Math.pow(1 - progress, 3);
+              el.textContent = (target * eased).toFixed(decimals) + suffix;
+              if (progress < 1) requestAnimationFrame(frame);
+            }
+            requestAnimationFrame(frame);
+          });
+        }, { threshold: 0.6 });
+        counters.forEach(function (el) { counterIo.observe(el); });
+      }
+    }
+
+    // ---------- live GitHub stats ----------
+    function timeAgo(date) {
+      var days = Math.floor((Date.now() - date.getTime()) / 86400000);
+      if (days <= 0) return "today";
+      if (days === 1) return "1 day ago";
+      if (days < 30) return days + " days ago";
+      var months = Math.floor(days / 30);
+      if (months < 12) return months + (months === 1 ? " month ago" : " months ago");
+      var years = Math.floor(months / 12);
+      return years + (years === 1 ? " year ago" : " years ago");
+    }
+    document.querySelectorAll(".gh-stats").forEach(function (el) {
+      var repo = el.getAttribute("data-repo");
+      if (!repo) return;
+      var controller = ("AbortController" in window) ? new AbortController() : null;
+      var timeoutId = setTimeout(function () { if (controller) controller.abort(); }, 5000);
+      fetch("https://api.github.com/repos/" + repo, { signal: controller ? controller.signal : undefined })
+        .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+        .then(function (data) {
+          clearTimeout(timeoutId);
+          var stars = data.stargazers_count || 0;
+          var pushed = data.pushed_at ? timeAgo(new Date(data.pushed_at)) : "";
+          el.textContent = "★ " + stars + (pushed ? " · updated " + pushed : "");
+          el.classList.add("loaded");
+        })
+        .catch(function () { clearTimeout(timeoutId); el.textContent = ""; });
+    });
+
+    // ---------- interactive terminal ----------
+    (function () {
+      var termInput = document.getElementById("termInput");
+      var termOutput = document.getElementById("termOutput");
+      if (!termInput || !termOutput) return;
+
+      function printLine(html) {
+        var div = document.createElement("div");
+        div.innerHTML = html;
+        termOutput.appendChild(div);
+        termOutput.scrollTop = termOutput.scrollHeight;
+      }
+
+      var history = [];
+      var historyIndex = 0;
+      var draft = "";
+
+      var commands = {
+        help: function () {
+          return 'Commands: <span class="hl">whoami</span>, <span class="hl">projects</span>, <span class="hl">research</span>, <span class="hl">skills</span>, <span class="hl">contact</span>, <span class="hl">clear</span> — use ↑/↓ to recall previous commands';
+        },
+        whoami: function () {
+          return "P. Manikanta — 3rd-year AI &amp; Data Science undergrad, Amrita Vishwa Vidyapeetham. Building toward a Data Science role at Google.";
+        },
+        projects: function () {
+          return "customer-churn-prediction — telecom churn model (78% acc)<br>smartsave-ai-wallet — AI fintech wallet, hackathon build<br>skin-lesion-classification — CNN ensemble, repo publishing soon";
+        },
+        research: function () {
+          return "spiking-cbm — ante-hoc concept bottlenecks for spiking vision backbones. Active, experiment phase.";
+        },
+        skills: function () {
+          return "Python, SQL, Java · PyTorch, Scikit-learn, CNNs, SNNs · Pandas/NumPy/Seaborn/Matplotlib · currently learning: window functions, statistics, cloud, DSA";
+        },
+        contact: function () {
+          return 'palaganimanikanta9@gmail.com · <a href="https://linkedin.com/in/manikanta-palagani" target="_blank" rel="noopener noreferrer" style="color:var(--cyan)">LinkedIn</a> · <a href="https://github.com/palaganimanikanta9-spec" target="_blank" rel="noopener noreferrer" style="color:var(--cyan)">GitHub</a>';
+        },
+        clear: function () { termOutput.innerHTML = ""; return null; },
+        sudo: function () { return "Nice try. Permission denied."; },
+        date: function () { return new Date().toString(); },
+        ls: function () { return commands.projects(); }
+      };
+
+      termInput.addEventListener("keydown", function (e) {
+        if (e.key === "ArrowUp") {
+          if (!history.length) return;
+          e.preventDefault();
+          if (historyIndex === history.length) draft = termInput.value;
+          historyIndex = Math.max(0, historyIndex - 1);
+          termInput.value = history[historyIndex];
+          return;
+        }
+        if (e.key === "ArrowDown") {
+          if (!history.length) return;
+          e.preventDefault();
+          historyIndex = Math.min(history.length, historyIndex + 1);
+          termInput.value = historyIndex === history.length ? draft : history[historyIndex];
+          return;
+        }
+        if (e.key !== "Enter") return;
+        var raw = termInput.value;
+        var cmd = raw.trim().toLowerCase();
+        printLine('<span class="echo">visitor@portfolio:~$</span> ' + raw.replace(/</g, "&lt;"));
+        termInput.value = "";
+        if (!cmd) return;
+        if (!history.length || history[history.length - 1] !== raw) history.push(raw);
+        historyIndex = history.length;
+        draft = "";
+        if (Object.prototype.hasOwnProperty.call(commands, cmd)) {
+          var out = commands[cmd]();
+          if (out) printLine(out);
+        } else {
+          printLine('<span class="err">command not found: ' + cmd.replace(/</g, "&lt;") + "</span> — type <span class=\"hl\">help</span>");
+        }
+      });
+    })();
+
+    // ---------- click-to-copy email ----------
+    (function () {
+      var toast = document.getElementById("copyToast");
+      var EMAIL = "palaganimanikanta9@gmail.com";
+      if (!toast) return;
+      var hideTimer = null;
+      function showToast(x, y) {
+        toast.style.left = x + "px";
+        toast.style.top = y + "px";
+        toast.classList.add("show");
+        clearTimeout(hideTimer);
+        hideTimer = setTimeout(function () { toast.classList.remove("show"); }, 1400);
+      }
+      document.querySelectorAll(".copy-email").forEach(function (el) {
+        el.addEventListener("click", function (e) {
+          if (!navigator.clipboard || !navigator.clipboard.writeText) return;
+          navigator.clipboard.writeText(EMAIL).then(function () {
+            var rect = el.getBoundingClientRect();
+            showToast(rect.left + rect.width / 2, rect.top);
+          }).catch(function () {});
+        });
+      });
+    })();
+
+    if (reduced || !finePointer) return;
+
+    var dot = document.getElementById("cursorDot");
+    var ring = document.getElementById("cursorRing");
+    var rx = 0, ry = 0, tx = 0, ty = 0, hovering = false;
+    window.addEventListener("mousemove", function (e) {
+      tx = e.clientX; ty = e.clientY;
+      dot.style.transform = "translate(" + tx + "px," + ty + "px)";
+      dot.style.opacity = 1; ring.style.opacity = 0.9;
+      hovering = !!(e.target && e.target.closest && e.target.closest("[data-cursor-hover]"));
+      if (hovering) ring.classList.add("hot"); else ring.classList.remove("hot");
+    });
+    document.documentElement.addEventListener("mouseleave", function () {
+      dot.style.opacity = 0; ring.style.opacity = 0;
+    });
+    (function raf() {
+      rx += (tx - rx) * 0.18; ry += (ty - ry) * 0.18;
+      var scale = hovering ? 1.7 : 1;
+      ring.style.transform = "translate(" + rx + "px," + ry + "px) scale(" + scale + ")";
+      requestAnimationFrame(raf);
+    })();
+
+    document.querySelectorAll(".tilt").forEach(function (card) {
+      card.addEventListener("mousemove", function (e) {
+        var rect = card.getBoundingClientRect();
+        var px = (e.clientX - rect.left) / rect.width;
+        var py = (e.clientY - rect.top) / rect.height;
+        var rotY = (px - 0.5) * 12;
+        var rotX = (0.5 - py) * 12;
+        card.style.transform = "perspective(900px) rotateX(" + rotX + "deg) rotateY(" + rotY + "deg)";
+        card.style.setProperty("--mx", (px * 100) + "%");
+        card.style.setProperty("--my", (py * 100) + "%");
+      });
+      card.addEventListener("mouseleave", function () {
+        card.style.transform = "perspective(900px) rotateX(0deg) rotateY(0deg)";
+      });
+    });
+
+    document.querySelectorAll(".magnetic").forEach(function (wrap) {
+      wrap.addEventListener("mousemove", function (e) {
+        var rect = wrap.getBoundingClientRect();
+        var relX = e.clientX - rect.left - rect.width / 2;
+        var relY = e.clientY - rect.top - rect.height / 2;
+        wrap.style.transform = "translate(" + (relX * 0.32) + "px," + (relY * 0.32) + "px)";
+      });
+      wrap.addEventListener("mouseleave", function () { wrap.style.transform = "translate(0,0)"; });
+    });
+  })();
+</script>
+
+</body>
+</html>
