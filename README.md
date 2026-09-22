@@ -22,10 +22,10 @@ The goal is to present my work professionally and build an online presence for i
 
 ## 🌍 Live Demo
 
-https://palaganimanikanta9-spec.github.io/portfolio/
+https://palagani-manikanta.github.io/portfolio/
 
 ## 📬 Contact
 
 - 📧 Email: palaganimanikanta9@gmail.com
-- 💻 GitHub: https://github.com/palaganimanikanta9-spec
+- 💻 GitHub: https://github.com/palagani-manikanta
 - 🔗 LinkedIn: https://linkedin.com/in/manikanta-palagani
