@@ -681,7 +681,7 @@
           </div>
           <p class="proj-summary">Predicts which telecom customers are about to churn from their contract, billing, and service usage data.</p>
           <ul class="proj-details">
-            <li>Logistic Regression baseline reached <span class="counter" data-target="78" data-decimals="0" data-suffix="%">0%</span> accuracy; a class-balanced Random Forest traded a little accuracy for materially better recall on churners, which is the metric that matters for a retention campaign.</li>
+            <li>Logistic Regression reached <span class="counter" data-target="79" data-decimals="0" data-suffix="%">0%</span> accuracy, against a 73% baseline from always predicting &quot;no churn&quot;. A class-balanced Random Forest raised recall on churners from 51% to <span class="counter" data-target="82" data-decimals="0" data-suffix="%">0%</span>, which is the metric that matters for a retention campaign.</li>
             <li>Found that month-to-month contracts and fiber-optic service correlate with higher churn, while longer contract terms correlate with lower churn — used to shape which customers a retention team should prioritize.</li>
             <li>Next: XGBoost comparison, hyperparameter tuning, and a Streamlit demo so the model is clickable, not just a notebook.</li>
           </ul>
@@ -770,7 +770,8 @@
           <li>Literature review found no existing work combining spiking neural networks with concept bottleneck models for vision.</li>
           <li>Implemented a frozen SpikingResformer-Ti backbone with a LIF membrane-potential hook feeding a 112-concept bottleneck layer (CUB-200-2011 attributes) into a 200-way classification head.</li>
           <li>Go/no-go probe on the readout signal: spike-rate narrowly beat pre-reset membrane potential (<span class="counter" data-target="0.911" data-decimals="3" data-suffix="">0</span> vs <span class="counter" data-target="0.908" data-decimals="3" data-suffix="">0</span> mean ROC-AUC), which failed the pre-registered significance gate — so the project pivoted to spike-rate as the primary readout rather than forcing a result.</li>
-          <li>Currently training with the corrected readout; no final accuracy numbers yet — this section will update when there&apos;s something real to report.</li>
+          <li>Reviewed results (3 seeds, capacity-matched ANN baselines): class accuracy statistically indistinguishable from a ResNet-34 (58.6% vs 58.7%) at about 5.7&times; lower estimated compute energy, with in-order spike decoding beating shuffled and time-averaged readouts.</li>
+          <li>Honest negative result: calibration improves concept intervention, but a capacity-matched ResNet-34 gets the same benefit, so it is not a spiking-specific advantage. Details in <a href="https://github.com/palagani-manikanta/SpikingResformer/blob/main/REVIEW_RESULTS.md" target="_blank" rel="noopener noreferrer">REVIEW_RESULTS.md</a>.</li>
         </ul>
         <div class="stack-row">
           <span class="stack-pill">PyTorch</span><span class="stack-pill">Spiking Neural Networks</span><span class="stack-pill">SpikingResformer</span><span class="stack-pill">Concept Bottleneck Models</span>
@@ -1410,7 +1411,7 @@
           return "P. Manikanta — 3rd-year AI &amp; Data Science undergrad, Amrita Vishwa Vidyapeetham. Building toward a Data Science role at Google.";
         },
         projects: function () {
-          return "customer-churn-prediction — telecom churn model (78% acc)<br>smartsave-ai-wallet — AI fintech wallet, hackathon build<br>skin-lesion-classification — CNN ensemble, repo publishing soon";
+          return "customer-churn-prediction — telecom churn model (82% churn recall)<br>smartsave-ai-wallet — AI fintech wallet, hackathon build<br>skin-lesion-classification — CNN ensemble, repo publishing soon";
         },
         research: function () {
           return "spiking-cbm — ante-hoc concept bottlenecks for spiking vision backbones. Active, experiment phase.";
